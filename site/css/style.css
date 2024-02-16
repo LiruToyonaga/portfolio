@@ -1,0 +1,2040 @@
+@charset "UTF-8";
+
+
+/*　↓↓　ハンバーガーここから　↓↓　*/
+
+@import url('https://fonts.googleapis.com/css?family=Pacifico|Open+Sans:300');
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+* {
+  box-sizing: border-box;
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 300;
+}
+a,
+a:visited,
+a:hover,
+a:active {
+  color: rgba(231, 31, 27, 1);
+  text-decoration: none;
+  font-weight: bold;
+}
+.outer-menu {
+  position: absolute;
+  top: 81px;
+  left: -24px;
+  z-index: 1;
+}
+.outer-menu .checkbox-toggle {
+  position: absolute;
+  top: -50px;
+  left: 1300px;
+  z-index: 2;
+  cursor: pointer;
+  width: 60px;
+  height: 60px;
+  opacity: 0;
+}
+.outer-menu .checkbox-toggle:checked + .hamburger > div {
+  transform: rotate(135deg);
+}
+.outer-menu .checkbox-toggle:checked + .hamburger > div:before,
+.outer-menu .checkbox-toggle:checked + .hamburger > div:after {
+  top: 0;
+  transform: rotate(90deg);
+}
+.outer-menu .checkbox-toggle:checked + .hamburger > div:after {
+  opacity: 0;
+}
+.outer-menu .checkbox-toggle:checked ~ .menu {
+  pointer-events: auto;
+  visibility: visible;
+}
+
+.outer-menu .checkbox-toggle:checked ~ .hamburger {
+  position: fixed;
+  top: 31px;
+  left: 1276px;
+}
+.outer-menu .checkbox-toggle:checked ~ .popup-wrapper {
+  position: fixed;
+  top: 30px;
+  left: 803px;
+  display: block;
+  z-index: 99999;
+}
+.outer-menu > .popup-wrapper{
+  display: none;
+}
+
+.outer-menu .checkbox-toggle:checked ~ .menu > div {
+  transform: scale(1);
+  transition-duration: .75s;
+}
+.outer-menu .checkbox-toggle:checked ~ .menu > div > div {
+  opacity: 1;
+  transition: opacity .4s ease .4s;
+}
+.outer-menu .checkbox-toggle:hover + .hamburger {
+	background:rgba(246,190,190,1);
+}
+.outer-menu .checkbox-toggle:checked:hover + .hamburger > div {
+  transform: rotate(136deg);
+}
+.outer-menu .hamburger {
+  position: absolute;
+  top: -50px;
+  left: 1300px;
+  z-index: 1;
+  width: 100px;
+  height: 100px;
+  padding: .5em 1em;
+  background: rgba(252,197,197,0.8);
+  border-radius: 30px;
+  cursor: pointer;
+  transition: box-shadow .4s ease;
+  backface-visibility: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-menu .hamburger > div {
+  position: relative;
+  flex: none;
+  width: 100%;
+  height: 5px;
+  background: #E71F1B;
+  transition: all .4s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-menu .hamburger > div:before,
+.outer-menu .hamburger > div:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  top: -16px;
+  left: 0;
+  width: 100%;
+  height: 5px;
+  background: inherit;
+  transition: all .4s ease;
+}
+.outer-menu .hamburger > div:after {
+  top: 16px;
+}
+.outer-menu .menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  visibility: hidden;
+  overflow: hidden;
+  backface-visibility: hidden;
+  outline: 1px solid transparent;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-menu .menu > div {
+  width: 200vw;
+  height: 200vw;
+  color: #FEFEFE;
+  background: rgba(249,212,210,1);
+  border-radius: 50%;
+  transition: all .4s ease;
+  flex: none;
+  transform: scale(0);
+  backface-visibility: hidden;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-menu .menu > div > div {
+  text-align: center;
+  max-width: 90vw;
+  max-height: 100vh;
+  opacity: 0;
+  transition: opacity .4s ease;
+  overflow-y: auto;
+  flex: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.outer-menu .menu > div > div > ul {
+  list-style: none;
+  padding: 0 1em;
+  margin: 0;
+  display: block;
+  max-height: 100vh;
+}
+.outer-menu .menu > div > div > ul > li {
+  padding: 0;
+  margin: 0 0 40px 0;
+  font-size: 28px;
+  display: block;
+}
+.outer-menu .menu > div > div > ul > li > a {
+  position: relative;
+  display: inline;
+  cursor: pointer;
+  transition: color .4s ease;
+}
+.outer-menu .menu > div > div > ul > li > a:hover {
+  color: rgba(243, 80, 80, 1);
+}
+.outer-menu .menu > div > div > ul > li > a:hover:after {
+  width: 100%;
+}
+.outer-menu .menu > div > div > ul > li > a:after {
+  content: '';
+  position: absolute;
+  z-index: 1;
+  bottom: -0.15em;
+  left: 0;
+  width: 0;
+  height: 4px;
+  background: #F57371;
+  transition: width .4s ease;
+}
+
+/* ↑↑　ハンバーガーここまで ↑↑　*/
+
+html{
+}
+
+body{
+	background-color: #FCFDDD;
+	color: #555555;
+	font-size: 24px;
+}
+
+#content{
+	width: 1280px;
+	margin: 0 auto;
+}
+
+header, nav, #contents {
+	width: 1280px; 
+}
+
+header{
+	display: flex;
+}
+
+header ul{
+	list-style-type: none;
+	display: flex;
+}
+
+.logotop{
+	width: 640px;
+	margin: 30px;
+}
+
+.btn{
+	width: 640px;
+	margin: 30px 0 30px 30px;
+}
+
+
+/*　↓↓　地図ポップアップここから　↓↓　*/
+
+.popup-wrapper{
+  margin: 0 0 0 360px;
+ }
+
+.open-btn {
+	/*画像置換でボタンにホバーをつける方法*/
+	position: absolute;
+	width: 100px;
+	height: 100px;
+	cursor:pointer
+}
+.open-btn img {
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.open-btn:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+#open:checked ~ .popup-content{
+    visibility: visible;
+    opacity : 1;
+    transition: .3s;
+}
+#open:checked ~ .overlay {
+		/*ポップアップ表示の時の外側の背景を暗くする*/
+    background: rgb(0, 0, 0,0.75);
+    display: block;
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    transition: .3s;
+    z-index: 9999;
+}
+.popup-content{
+	  visibility: hidden;
+    opacity : 0;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90%;
+    max-width: 1215px;
+    background-color: #FCFDDD;
+    background-image: url(../img/map/map.png);
+    transition: .1s;
+    padding: 22%;
+    width: 100vh;
+    height: 100vh;
+    z-index: 9999;
+}
+@media (orientation: landscape){
+    .popup-content{
+        width: 84%;
+        height: 120%;
+    }
+}
+input#open{display: none;}
+
+label.close-btn img {
+    position: absolute;
+    top: -380px;
+    right: -800px;
+}
+.close-btn {
+	position: absolute;
+	width: 117px;
+	height: 107px;
+	margin: 0;
+	z-index: 9999;
+	cursor:pointer
+}
+.close-btn img {
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+}
+.close-btn:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+/*　↑↑　地図ポップアップここまで　↑↑　*/
+
+
+
+
+/*　↓↓　トップページ（コンテンツボタン・アフタヌーンティーとは）ここから　↓↓　*/
+
+#mv{
+	margin: 30px 0;
+}
+   /*　コンテンツボタン ↓　*/
+nav{
+	margin-bottom: 100px;
+}
+nav h1 img{
+	margin: 0 auto;
+	text-align: center;
+}
+nav ul {
+	list-style-type: none;
+	margin: 0 0 20px 0;
+	padding-left: 0;
+	overflow: hidden;
+	width: 1216px;
+	margin-left: 32px;
+}
+nav ul li {
+	width: 404px;
+	float: left;
+}
+nav ul li a {
+	display: block;
+	height: 0;
+	padding-top: 143px;
+	overflow: hidden;
+}
+
+nav ul li#nav_about a {
+	background-image: url(../img/contents/nav1.png);
+}
+nav ul li#nav_area a {
+	background-image: url(../img/contents/nav2.png);
+}
+nav ul li#nav_genre a {
+	background-image: url(../img/contents/nav3.png);
+}
+nav ul li#nav_order a {
+	background-image: url(../img/contents/nav4.png);
+}
+nav ul li#nav_picup a {
+	background-image: url(../img/contents/nav5.png);
+}
+nav ul li#nav_list a {
+	background-image: url(../img/contents/nav6.png);
+}
+
+#nav_about a:hover{
+	background-image: url(../img/contents/nav102.png);
+}
+#nav_area a:hover{
+	background-image: url(../img/contents/nav202.png);
+}
+#nav_genre a:hover{
+	background-image: url(../img/contents/nav302.png);
+}
+#nav_order a:hover{
+	background-image: url(../img/contents/nav402.png);
+}
+#nav_picup a:hover{
+	background-image: url(../img/contents/nav502.png);
+}
+#nav_list a:hover{
+	background-image: url(../img/contents/nav602.png);
+}
+
+     /*　アフタヌーンティーとは ↓　*/
+#about{
+	justify-content: space-between;
+	background-color: #F9D4D2;
+	width: 1280px;
+	background-image: url(../img/about/teapot-hana.png);
+	background-repeat:  no-repeat;
+	background-position: 850px 600px;   
+}
+#about h1 img{
+	margin: 0 auto;
+	text-align: center;
+}
+
+.box01{
+	width: 1280px;
+	padding: 0 0 90px 90px;
+}
+.box01 h2{
+	padding: 0 0 30px 0;
+}
+.box01 figure, img{
+	display: flex;
+}
+.box01 figure figcaption{
+	width: 465px;
+	margin: 0 0 0 60px;
+}
+
+.box02{
+	width: 1280px;
+	padding: 0 90px 90px 0;
+	background-image: url(../img/about/hana01.png);
+	background-position: 400px 380px;
+}
+.box02 h2{
+	padding: 0 0 30px 90px;
+}
+.box02 figure, img{
+	display: flex;
+	flex-direction: row-reverse;
+}
+.box02 figure figcaption{
+	width: 465px;
+	margin: 0 60px 0 0;
+}
+.box02{
+	width: 1280px;
+}
+
+/*　↑↑　トップページ（コンテンツボタン・アフタヌーンティーとは）ここまで　↑↑　*/
+
+
+
+/* ↓↓　フッターここから　↓↓　*/
+footer{
+	width: 1280px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 30px;
+  border-top: 3px solid #E71F1B;
+  border-bottom: 3px solid #E71F1B;
+}
+.insta{
+	margin: 40px 0 40px 40px;
+}
+.content02 {
+  display: flex;
+  flex-direction: column; /* 画像を縦に並べる */
+  gap: 40px; /* .content02内の各要素の間隔を調整 */
+}
+.copyright {
+  text-align: center;
+  color: #E71F1B;
+  font-size: 16px;
+  margin: 443px 0 0 0;
+  width: 1280px;
+  height: 80px;
+  position: absolute;
+  background: #F9D4D2;
+  padding: 20px 0 0 0;
+}
+#pagetop{
+  position: fixed;
+  right: 50px;
+  bottom: 5px;
+}
+#pagetop:hover{
+	opacity: 0.75;
+}
+
+/* ↑↑　フッターここまで　↑↑　*/
+
+
+
+/* ↓↓　エリア別ページ　エリア別ボタン　↓↓　*/
+
+nav#areabtn{
+	margin-bottom: 100px;
+}
+nav#areabtn h1 img{
+	margin: 0 auto;
+	text-align: center;
+}
+nav#areabtn ul {
+	list-style-type: none;
+	margin: 0 0 20px 0;
+	padding-left: 0;
+	overflow: hidden;
+	width: 1216px;
+	margin-left: 32px;
+}
+nav#areabtn ul li {
+	width: 404px;
+	float: left;
+}
+nav#areabtn ul li a {
+	display: block;
+	height: 0;
+	padding-top: 143px;
+	overflow: hidden;
+}
+
+nav#areabtn ul li#south_area a{
+	background-image: url(../img/area/south01.png);
+	cursor: default;
+}
+nav#areabtn ul li#central_area a {
+	background-image: url(../img/area/central01.png);
+}
+nav#areabtn ul li#north_area a {
+	background-image: url(../img/area/north01.png);
+}
+
+nav#areabtn ul li#central_area a:hover{
+	background-image: url(../img/area/central02.png);
+}
+nav#areabtn ul li#north_area a:hover{
+	background-image: url(../img/area/north02.png);
+}
+
+
+
+nav#areabtn02{
+	margin-bottom: 100px;
+}
+nav#areabtn02 h1 img{
+	margin: 0 auto;
+	text-align: center;
+}
+nav#areabtn02 ul {
+	list-style-type: none;
+	margin: 0 0 20px 0;
+	padding-left: 0;
+	overflow: hidden;
+	width: 1216px;
+	margin-left: 32px;
+}
+nav#areabtn02 ul li {
+	width: 404px;
+	float: left;
+}
+nav#areabtn02 ul li a {
+	display: block;
+	height: 0;
+	padding-top: 143px;
+	overflow: hidden;
+}
+
+nav#areabtn02 ul li#south_area a{
+	background-image: url(../img/area/south01.png);
+}
+nav#areabtn02 ul li#central_area a {
+	background-image: url(../img/area/central01.png);
+	cursor: default;
+}
+nav#areabtn02 ul li#north_area a {
+	background-image: url(../img/area/north01.png);
+}
+
+nav#areabtn02 ul li#south_area a:hover{
+	background-image: url(../img/area/south02.png);
+}
+nav#areabtn02 ul li#north_area a:hover{
+	background-image: url(../img/area/north02.png);
+}
+
+
+
+
+nav#areabtn03{
+	margin-bottom: 100px;
+}
+nav#areabtn03 h1 img{
+	margin: 0 auto;
+	text-align: center;
+}
+nav#areabtn03 ul {
+	list-style-type: none;
+	margin: 0 0 20px 0;
+	padding-left: 0;
+	overflow: hidden;
+	width: 1216px;
+	margin-left: 32px;
+}
+nav#areabtn03 ul li {
+	width: 404px;
+	float: left;
+}
+nav#areabtn03 ul li a {
+	display: block;
+	height: 0;
+	padding-top: 143px;
+	overflow: hidden;
+}
+
+nav#areabtn03 ul li#south_area a{
+	background-image: url(../img/area/south01.png);
+}
+nav#areabtn03 ul li#central_area a {
+	background-image: url(../img/area/central01.png);
+}
+nav#areabtn03 ul li#north_area a {
+	background-image: url(../img/area/north01.png);
+	cursor: default;
+}
+
+nav#areabtn03 ul li#south_area a:hover{
+	background-image: url(../img/area/south02.png);
+}
+nav#areabtn03 ul li#central_area a:hover{
+	background-image: url(../img/area/central02.png);
+}
+
+
+
+
+/* ↓↓　エリア別ページ　南部エリアここから　↓↓　*/
+
+.areatype{
+	margin-bottom: 50px;
+}
+
+/*　↓↓　コレクティブここから　↓↓　*/
+.shop01{
+	width: 1280px;
+	height: 1503px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop01 h1{
+	padding: 80px 0 50px 70px;
+}
+.photo {
+    display: flex;
+    padding-left: 60px;
+}
+.vertical-images {
+    display: flex;
+    flex-direction: column;
+    margin-left: 50px; /* 画像間の余白を調整する場合は必要に応じて調整してください */
+}
+.vertical-images img {
+    margin-bottom: 17px;
+}
+
+   /*  詳細 */
+#announce{
+	width: 1135px;
+	margin: 40px 0 0 73px;
+}
+
+.text h2{
+	font-weight: bold;
+}
+.text {
+    display: flex;
+}
+.text p{
+	margin-left: 100px;
+	font-size: 32px;
+}
+
+.spot .text img{
+	width: 30px;
+	height: 35px;
+	margin-left: 10px;
+	margin-top: 3px;
+}
+
+.textb a{
+	font-weight: normal;
+	color: #555555;
+	text-decoration: 1px underline solid  #555555;
+}
+
+
+
+.price {
+    display: flex;
+    width: 1135px;
+    padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.price img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+.spot {
+    display: flex;
+    width: 1135px;
+     padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.spot img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+.time {
+    display: flex;
+    width: 1135px;
+      padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.time img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+.site {
+    display: flex;
+    width: 1135px;
+    padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.site img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+
+.more-btn {
+    display: flex;
+    margin: 80px 0 80px 70px;
+    width: 1140px;
+}
+
+.iinebtn{
+    width: 200px;
+    margin: 0 0 0 870px;
+}
+
+
+
+.img-list {
+		width: 1135px;
+    list-style: none;
+    display: flex;
+}
+
+.img-list li {
+    margin-right: 40px; /* 画像間の余白を調整 */
+}
+
+
+
+/*　↓↓　詳しくみるボタンここから　↓↓*/
+/* ポップアップwindow部分 */
+/* コンテンツ部分のスタイル */
+#txt_label li img{
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	cursor: pointer;
+}
+#txt_label li:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+
+
+
+#msg{
+}
+
+
+
+
+#msg h2 img{
+	width: 1000px;
+	margin: 80px auto;
+}
+.leaf img{
+	margin: 40px auto;
+}
+.lead{
+	border-bottom: 1px solid #FF008A;
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.lead p{
+	font-size: 24px;
+	text-align: center;
+	letter-spacing: 3px;
+	line-height: 40px;
+}
+.price2{
+	border-bottom: 1px solid #FF008A;
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.price2 h3{
+	margin: 40px 0 20px 0;
+}
+
+.main-menu{
+	border-bottom: 1px solid #FF008A;
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.main-menu h3{
+	margin: 40px 0 20px 0;
+}
+
+.reservation{
+	border-bottom: 1px solid #FF008A;
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.reservation h3{
+	margin: 40px 0 20px 0;
+}
+.reservation-options {
+    display: flex;
+    justify-content: space-between; /* 要素を横に均等に配置 */
+    margin-top: 20px; /* オプション間の余白を調整 */
+}
+.reservation-option {
+    flex: 1; /* 均等に分割 */
+}
+.reservation-option img {
+    max-width: 100%; /* 画像が親要素をはみ出さないようにする */
+    cursor: pointer;
+    /* その他のスタイリングは必要に応じて追加 */
+    margin-top: 20px;
+}
+.reservation-option img:hover{
+	opacity: 0.6;
+}
+
+.infomation{
+	border-bottom: 1px solid #FF008A;
+	width: 1200px;
+	margin: 0 auto;
+	padding-bottom: 50px;
+}
+.infomation h3{
+	margin: 40px 0 20px 0;
+}
+
+/*　↑↑　コレクティブここまで　↑↑　*/
+
+/*　↓↓　ノボテル沖縄ここから　↓↓　*/
+
+.shop02{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop02 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ノボテル沖縄ここまで　↑↑　*/
+
+/*　↓↓　ダブルツリーbyヒルトン那覇首里城ここから　↓↓　*/
+
+.shop03{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop03 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ダブルツリーbyヒルトン那覇首里城ここまで　↑↑　*/
+
+
+/*　↓↓　沖縄ハーバービューホテル　↓↓　*/
+
+.shop04{
+	width: 1280px;
+	height: 1500px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop04 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　沖縄ハーバービューホテル　↑↑　*/
+
+/*　↓↓　ザ・ナハテラス　↓↓　*/
+
+.shop05{
+	width: 1280px;
+	height: 1520px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop05 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ザ・ナハテラス　↑↑　*/
+
+/*　↓↓　ハイアット リージェンシー那覇　↓↓　*/
+
+.shop06{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop06 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ハイアット リージェンシー那覇　↑↑　*/
+
+/*　↓↓　琉球ホテル＆リゾート名城ビーチ　↓↓　*/
+
+.shop07{
+	width: 1280px;
+	height: 1520px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop07 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　琉球ホテル＆リゾート名城ビーチ　↑↑　*/
+
+
+
+
+
+
+
+/*　↓↓　ホテル日航アリビラ　↓↓　*/
+
+.shop08{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop08 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ホテル日航アリビラ　↑↑　*/
+
+
+/*　↓↓　ラ・ジェントホテル沖縄　↓↓　*/
+
+.shop09{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop09 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ラ・ジェントホテル沖縄　↑↑　*/
+
+/*　↓↓　MBギャラリーチャタン by ザ・テラスホテルズ　↓↓　*/
+
+.shop10{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop10 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　MBギャラリーチャタン by ザ・テラスホテルズ　↑↑　*/
+
+/*　↓↓　ムーンオーシャン宜野湾　↓↓　*/
+
+.shop11{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop11 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ムーンオーシャン宜野湾　↑↑　*/
+
+
+/*　↓↓　ラグナガーデンホテル　↓↓　*/
+
+.shop12{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop12 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ラグナガーデンホテル　↑↑　*/
+
+
+
+
+
+
+
+
+/*　↓↓　ザ・リッツ・カールトン沖縄　↓↓　*/
+
+.shop13{
+	width: 1280px;
+	height: 1505px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop13 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ザ・リッツ・カールトン沖縄　↑↑　*/
+
+
+/*　↓↓　ブセナテラス　↓↓　*/
+
+.shop14{
+	width: 1280px;
+	height: 1505px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop14 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ブセナテラス　↑↑　*/
+
+
+/*　↓↓　かりゆしビーチリゾート・オーシャンスパ　↓↓　*/
+
+.shop15{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop15 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　かりゆしビーチリゾート・オーシャンスパ　↑↑　*/
+
+
+/*　↓↓　ハレクラニ　↓↓　*/
+
+.shop16{
+	width: 1280px;
+	height: 1515px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop16 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ハレクラニ　↑↑　*/
+
+
+/*　↓↓　ANAインターコンチネンタル万座ビーチリゾート　↓↓　*/
+
+.shop17{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop17 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ANAインターコンチネンタル万座ビーチリゾート　↑↑　*/
+
+
+/*　↓↓　シェラトン沖縄サンマリーナリゾート　↓↓　*/
+
+.shop18{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop18 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　シェラトン沖縄サンマリーナリゾート　↑↑　*/
+
+
+/*　↓↓　ホテルモントレ沖縄　↓↓　*/
+
+.shop19{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop19 h1{
+	padding: 80px 0 50px 70px;
+}
+
+/*　↑↑　ホテルモントレ沖縄　↑↑　*/
+
+
+
+
+
+/* ↓↓　料金順ページ　料金が安い順ここから　↓↓　*/
+#down{
+	width: 600px;
+	height: 150px;
+}
+
+#up{
+	width: 600px;
+	height: 150px;
+}
+
+
+nav#rank-down ul li#down{
+	background-image: url(../img/area/rank-down01.png);
+}
+nav#rank-down ul li#up{
+	background-image: url(../img/area/rank-up01.png);
+}
+
+
+nav#rank-down ul li#up a:hover{
+	background-image: url(../img/area/rank-up02.png);
+}
+
+
+
+
+/* ↓↓　料金順ページ　料金が高い順ここから　↓↓　*/
+
+nav#rank-up ul li#down{
+	background-image: url(../img/area/rank-down01.png);
+}
+nav#rank-up ul li#up{
+	background-image: url(../img/area/rank-up01.png);
+}
+
+nav#rank-up ul li#down a:hover{
+	background-image: url(../img/area/rank-down02.png);
+}
+
+
+
+/* ↓↓　お家で楽しめるアフタヌーンティー　ここから　↓↓　*/
+
+.order01{
+	width: 1280px;
+	height: 2120px;
+	background-color: #F9D4D2;
+	margin: 80px 0 50px 0;
+}
+.order01 h1{
+	padding: 80px 0 50px 70px;
+}
+.order02{
+	width: 1280px;
+	height: 2015px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.order02 h1{
+	padding: 80px 0 50px 70px;
+}
+
+.order-photo{
+	width: 1000px;
+	height: 650px;
+	margin: 0 140px;
+}
+
+.order-lead p{
+	font-size: 30px;
+	text-align: center;
+}
+
+.order-text h2{
+	width: 150px;
+	height: 50px;
+	font-weight: bold;
+	font-size: 36px;
+	margin-right: 50px;
+}
+.order-text {
+    display: flex;
+}
+.order-text p{
+	width: 850px;
+	font-size: 32px;
+}
+
+.order-price {
+    display: flex;
+    width: 1135px;
+      padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.order-price img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+
+.order-cupcake {
+    display: flex;
+    width: 1135px;
+      padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.order-cupcake img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+
+.order-time {
+    display: flex;
+    width: 1135px;
+      padding: 50px 60px 20px 0;
+     border-bottom: 1px solid #555555;
+}
+.order-time img {
+    width: 50px; /* 画像の幅を適切なサイズに調整 */
+    height: 50px; /* 画像の高さを適切なサイズに調整 */
+    margin-right: 20px; /* 画像とテキストの間隔を調整 */
+}
+
+
+.order-more-btn {
+    display: flex;
+    margin: 80px auto;
+    width: 866px;
+}
+
+.order-img-list {
+    list-style: none;
+    display: flex;
+    border: 1px solid #f00;
+}
+
+
+#order_txt_label li img{
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	cursor: pointer;
+}
+
+#order_txt_label li:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+
+
+/*  ↓↓ ピックアップページここから　↓↓ */
+.shop20{
+	width: 1280px;
+	height: 1520px;
+	background-color: #F9D4D2;
+	margin: 80px 0 50px 0;
+}
+.shop20 h1{
+	padding: 80px 0 50px 70px;
+}
+
+.shop21{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop21 h1{
+	padding: 80px 0 50px 70px;
+}
+
+.shop22{
+	width: 1280px;
+	height: 1555px;
+	background-color: #F9D4D2;
+	margin: 0 0 50px 0;
+}
+.shop22 h1{
+	padding: 80px 0 50px 70px;
+}
+
+
+
+/* --------------------
+
+ポップアップ改良
+
+----------------------- */
+
+#popup
+,#popup02
+,#popup03
+,#popup04
+,#popup05
+,#popup06
+,#popup07
+,#popup08
+,#popup09
+,#popup10
+,#popup11
+,#popup12
+,#popup13
+,#popup14
+,#popup15
+,#popup16
+,#popup17
+,#popup18
+,#popup19
+,#popup20
+,#popup21
+,#popup22{
+  display: none; /* label でコントロールするので input は非表示に */
+}
+.popup-open {
+  cursor: pointer; /* マウスオーバーでカーソルの形状を変えることで、クリックできる要素だとわかりやすいように */
+}
+.popup-overlay
+,.popup-overlay02
+,.popup-overlay03
+,.popup-overlay04
+,.popup-overlay05
+,.popup-overlay06
+,.popup-overlay07
+,.popup-overlay08
+,.popup-overlay09
+,.popup-overlay10
+,.popup-overlay11
+,.popup-overlay12
+,.popup-overlay13
+,.popup-overlay14
+,.popup-overlay15
+,.popup-overlay16
+,.popup-overlay17
+,.popup-overlay18
+,.popup-overlay19
+,.popup-overlay20
+,.popup-overlay21
+,.popup-overlay22{
+  display: none; /* input にチェックが入るまでは非表示に */
+}
+
+#popup:checked ~ .popup-overlay
+,#popup02:checked ~ .popup-overlay02
+,#popup03:checked ~ .popup-overlay03
+,#popup04:checked ~ .popup-overlay04
+,#popup05:checked ~ .popup-overlay05
+,#popup06:checked ~ .popup-overlay06
+,#popup07:checked ~ .popup-overlay07
+,#popup08:checked ~ .popup-overlay08
+,#popup09:checked ~ .popup-overlay09
+,#popup10:checked ~ .popup-overlay10
+,#popup11:checked ~ .popup-overlay11
+,#popup12:checked ~ .popup-overlay12
+,#popup13:checked ~ .popup-overlay13
+,#popup14:checked ~ .popup-overlay14
+,#popup15:checked ~ .popup-overlay15
+,#popup16:checked ~ .popup-overlay16
+,#popup17:checked ~ .popup-overlay17
+,#popup18:checked ~ .popup-overlay18
+,#popup19:checked ~ .popup-overlay19
+,#popup20:checked ~ .popup-overlay20
+,#popup21:checked ~ .popup-overlay21
+,#popup22:checked ~ .popup-overlay22{
+  display: block;
+  z-index: 99999;
+  background-color: #00000070;
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  top: 0;
+  left: 0;
+}
+
+
+
+/* ポップアップ画面 */
+.popup-window {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 145%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window02 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1700px;
+  max-height:1700px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 130%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window03 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 150%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window04 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 150%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window05 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1700px;
+  max-height:1700px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 130%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window06 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1800px;
+  max-height:1800px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 135%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window07 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1450px;
+  max-height:1450px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 115%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window08 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2500px;
+  max-height:2500px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 180%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window09 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1800px;
+  max-height:1800px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 140%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window10 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1500px;
+  max-height:1500px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 115%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window11 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1750px;
+  max-height:1750px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 135%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window12 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2100px;
+  max-height:2100px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 155%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+.popup-window13 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1750px;
+  max-height:1750px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 135%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window14 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1850px;
+  max-height:1850px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 140%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window15 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 150%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window16 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2100px;
+  max-height:2100px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 155%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window17 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1900px;
+  max-height:1900px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 145%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window18 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2100px;
+  max-height:2100px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 155%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window19 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 150%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window20 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1700px;
+  max-height:1700px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 130%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window21 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 2000px;
+  max-height:2000px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 150%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+.popup-window22 {
+  width: 1280px;
+  max-width: 1280px;
+  height: 1900px;
+  max-height:1900px;
+  padding: 20px;
+  background-color: #F9D4D2;
+  border-radius: 20px;
+  position: relative;
+  top: 140%;
+  left: 50.5%;
+  transform: translate(-50%, -50%);
+  opacity: 1;
+}
+
+
+.popup-text
+,.popup-text02
+,.popup-text03
+,.popup-text04
+,.popup-text05
+,.popup-text06
+,.popup-text07
+,.popup-text08
+,.popup-text09
+,.popup-text10
+,.popup-text11
+,.popup-text12
+,.popup-text13
+,.popup-text14
+,.popup-text15
+,.popup-text16
+,.popup-text17
+,.popup-text18
+,.popup-text19
+,.popup-text20
+,.popup-text21
+,.popup-text22 {
+  margin: 0;
+}
+.popup-text:not(:last-of-type) {
+  margin-bottom: 1em;
+}
+
+.popup-close img {
+  cursor: pointer;
+  position: absolute;
+  top: -60px;
+  right: -60px;
+}
+
+.popup-overlay
+,.popup-overlay02
+,.popup-overlay03
+,.popup-overlay04
+,.popup-overlay05
+,.popup-overlay06
+,.popup-overlay07
+,.popup-overlay08
+,.popup-overlay09
+,.popup-overlay10
+,.popup-overlay11
+,.popup-overlay12
+,.popup-overlay13
+,.popup-overlay14
+,.popup-overlay15
+,.popup-overlay16
+,.popup-overlay17
+,.popup-overlay18
+,.popup-overlay19
+,.popup-overlay20
+,.popup-overlay21
+,.popup-overlay22 {
+    display: flex;
+    overscroll-behavior: contain;
+    overflow-y: scroll;
+    display: none;
+}
+.nonScroll {
+    height:calc(20vh + 1px) ;
+    width: 1px;
+    background-color: transparent;
+}
+
+.popup-overlay
+,.popup-overlay02
+,.popup-overlay03
+,.popup-overlay04
+,.popup-overlay05
+,.popup-overlay06
+,.popup-overlay07
+,.popup-overlay08
+,.popup-overlay09
+,.popup-overlay10
+,.popup-overlay11
+,.popup-overlay12
+,.popup-overlay13
+,.popup-overlay14
+,.popup-overlay15
+,.popup-overlay16
+,.popup-overlay17
+,.popup-overlay18
+,.popup-overlay19
+,.popup-overlay20
+,.popup-overlay21
+,.popup-overlay22 {
+　　scrollbar-width: none; 
+　　-ms-overflow-style: none;
+}
+
+.popup-overlay::-webkit-scrollbar
+,.popup-overlay02::-webkit-scrollbar
+,.popup-overlay03::-webkit-scrollbar
+,.popup-overlay04::-webkit-scrollbar
+,.popup-overlay05::-webkit-scrollbar
+,.popup-overlay06::-webkit-scrollbar
+,.popup-overlay07::-webkit-scrollbar
+,.popup-overlay08::-webkit-scrollbar
+,.popup-overlay09::-webkit-scrollbar
+,.popup-overlay10::-webkit-scrollbar
+,.popup-overlay11::-webkit-scrollbar
+,.popup-overlay12::-webkit-scrollbar
+,.popup-overlay13::-webkit-scrollbar
+,.popup-overlay14::-webkit-scrollbar
+,.popup-overlay15::-webkit-scrollbar
+,.popup-overlay16::-webkit-scrollbar
+,.popup-overlay17::-webkit-scrollbar
+,.popup-overlay18::-webkit-scrollbar
+,.popup-overlay19::-webkit-scrollbar
+,.popup-overlay20::-webkit-scrollbar
+,.popup-overlay21::-webkit-scrollbar
+,.popup-overlay22::-webkit-scrollbar
+{
+　 display: none;
+}
+
+.popup-overlay
+,.popup-overlay02
+,.popup-overlay03
+,.popup-overlay04
+,.popup-overlay05
+,.popup-overlay06
+,.popup-overlay07
+,.popup-overlay08
+,.popup-overlay09
+,.popup-overlay10
+,.popup-overlay11
+,.popup-overlay12
+,.popup-overlay13
+,.popup-overlay14
+,.popup-overlay15
+,.popup-overlay16
+,.popup-overlay17
+,.popup-overlay18
+,.popup-overlay19
+,.popup-overlay20
+,.popup-overlay21
+,.popup-overlay22
+{
+  touch-action: none;
+}
+
+/* --------------------*/
+
+
+
+/* ページネーション全体のスタイル */
+.Pagination {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+  width: 600px;
+  height: 80px;
+  margin: 0 auto;
+}
+
+/* 各ページのアイテムリンクのスタイル */
+.Pagination-Item-Link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 75px;
+  height: 75px;
+  background: #FCFDDD;
+  font-size: 32px;
+  color: #55998C;
+  font-weight: bold;
+  transition: all 0.15s linear;
+}
+
+/* ページリンクに含まれるアイコンのスタイル */
+.Pagination-Item-Link-Icon {
+  width: 75px;
+  height: 75px;
+}
+
+/* アクティブなページのスタイル */
+.Pagination-Item-Link.isActive {
+  background: #FCFDDD;
+  color: #55998C;
+  border: solid 3px #55998C;
+  border-radius: 5px;
+  pointer-events: none; /* クリックイベントを無効化 */
+}
+
+/* 非アクティブなページリンクのホバースタイル */
+.Pagination-Item-Link:not(.isActive):hover {
+  color: #55998C;
+  border: solid 3px #55998C;
+  border-radius: 5px;
+}
+
+/* ページアイテム間の余白 */
+.Pagination > * + * {
+  margin-left: 12px;
+}
+
+.Pagination-next{
+	width: 160px;
+	height: 75px;
+}
+
+.Pagination-next img{
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	cursor: pointer;
+}
+
+.Pagination-next:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+.Pagination-previous{
+		width: 160px;
+		height: 75px;
+}
+
+.Pagination-previous img{
+	position: absolute;
+	-webkit-transition: .3s ease-in-out;
+	transition: .3s ease-in-out;
+	cursor: pointer;
+}
+
+.Pagination-previous:hover img:nth-of-type(2) {
+	opacity: 0;
+	/*ホバーしたとき透明になる*/
+}
+
+
+
+
+
+
+/*
+.vertical-images ul li{
+	list-style-type: none;
+}
+
+/* アクティブな画像の枠線を変更 
+.sub-img li.current img {
+  border: 2px solid red;
+  transition: border .5s;
+}
+/* レイアウトのためのスタイル 
+.container {
+  margin: 50px auto 0;
+  max-width: 500px;
+}
+.main-img {
+  height: 334px;
+  width: 100%;
+}
+.main-img img {
+  height: auto;
+  width: 100%;
+}
+.sub-img {
+  display: flex;
+  margin-top: 10px;
+}
+.sub-img li {
+  margin-right: 2%;
+  width: calc(96% / 3);
+}
+.sub-img li:nth-child(3n) {
+  margin-right: 0;
+}
+.sub-img li img {
+  border: 2px solid transparent;
+  transition: border .5s;
+}
+.sub-img img {
+  cursor: pointer;
+  width: 100%;
+}
+
+*/
